@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة لحضور اجتماع الجمعية العمومية لمجلس أولياء الأمور</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* أنماط CSS العامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a3a8f 0%, #2c5aa0 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        /* رأس الصفحة */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
+        .school-logo {
+            width: 100px;
+            height: 100px;
+            margin-left: 15px;
+        }
+        
+        .school-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        
+        .greeting {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .school-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subject {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            padding: 8px 12px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+            display: inline-block;
+            border: 2px solid #ffd700;
+        }
+        
+        /* قسم العد التنازلي - مصغر */
+        .countdown-section {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 8px;
+            border-radius: 10px;
+            margin: 8px 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+        
+        .countdown-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 6px;
+            border-radius: 8px;
+            min-width: 70px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .countdown-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+        
+        /* قسم النص المتحرك - مكبر بشكل كبير */
+        .scrolling-section {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            height: calc(100vh - 280px);
+        }
+        
+        .scrolling-content {
+            position: absolute;
+            width: 100%;
+            padding: 0 15px;
+            animation: scrollUp 120s linear infinite;
+        }
+        
+        .message {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-right: 6px solid #ffd700;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .message-title {
+            color: #ffd700;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .message-title i {
+            margin-left: 15px;
+            font-size: 2rem;
+        }
+        
+        .message-content {
+            font-size: 1.8rem;
+            line-height: 1.9;
+            text-align: justify;
+        }
+        
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        
+        .details-list {
+            list-style-type: none;
+            font-size: 1.7rem;
+            margin-top: 20px;
+        }
+        
+        .details-list li {
+            padding: 15px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+        }
+        
+        .details-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .details-list li i {
+            margin-left: 15px;
+            color: #ffd700;
+            font-size: 1.7rem;
+        }
+        
+        .date {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        
+        /* تذييل الصفحة */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+        
+        .closing {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #ffd700;
+        }
+        
+        .signature {
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 8px;
+            }
+            
+            .school-logo {
+                margin-left: 0;
+                margin-bottom: 8px;
+                width: 80px;
+                height: 80px;
+            }
+            
+            .greeting {
+                font-size: 1.3rem;
+            }
+            
+            .school-name {
+                font-size: 1.5rem;
+            }
+            
+            .subject {
+                font-size: 1rem;
+            }
+            
+            .countdown-title {
+                font-size: 1.1rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 8px 4px;
+            }
+            
+            .message-content {
+                font-size: 1.5rem;
+            }
+            
+            .details-list {
+                font-size: 1.4rem;
+            }
+            
+            .message-title {
+                font-size: 1.8rem;
+            }
+            
+            .scrolling-section {
+                height: calc(100vh - 250px);
+            }
+        }
+        
+        /* تأثيرات للعد التنازلي */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* تأثير التمرير البطيء */
+        @keyframes scrollUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+        
+        /* تأثيرات للخلفية */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* عناصر التحكم في التمرير */
+        .scroll-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .scroll-btn {
+            background: rgba(255, 215, 0, 0.7);
+            border: none;
+            color: #1a3a8f;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-btn:hover {
+            background: rgba(255, 215, 0, 0.9);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- عناصر عائمة للخلفية -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <div class="container">
+        <header>
+            <div class="school-logo">
+                <img src="https://h.top4top.io/p_35600hx2h1.png" alt="شعار المدرسة">
+            </div>
+            <div class="header-content">
+                <div class="greeting">السلام عليكم ورحمة الله وبركاته</div>
+                <div class="school-name">مدرسة محمد بن سليمان الغافري للتعليم الأساسي</div>
+                <div class="subject">دعوة لحضور اجتماع الجمعية العمومية لتشكيل مجلس أولياء الأمور</div>
+            </div>
+        </header>
+        
+        <div class="countdown-section">
+            <h2 class="countdown-title">موعد انعقاد الاجتماع</h2>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">أيام</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">ساعات</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">دقائق</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">ثواني</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scrolling-section">
+            <div class="scroll-controls">
+                <button class="scroll-btn" id="pauseBtn"><i class="fas fa-pause"></i></button>
+                <button class="scroll-btn" id="playBtn"><i class="fas fa-play"></i></button>
+            </div>
+            <div class="scrolling-content" id="scrollingContent">
+                <!-- الرسالة 1 -->
+                <div class="message">
+                    <h2 class="message-title"><i class="fas fa-handshake"></i> دوركم الأساسي</h2>
+                    <div class="message-content">
+                        <span class="highlight">الأفاضل الكرام:</span><br>
+                        لا يخفى عليكم ما لأولياء الأمور من دور أصيل في بناء الأجيال وصياغة مستقبل مشرق لأبنائنا الطلبة، فأنتم السند الدائم والداعم الأول لمسيرة التعليم وشركاء المدرسة في تحقيق الجودة والتميّز.
+                    </div>
+                </div>
+                
+                <!-- الرسالة 2 -->
+                <div class="message">
+                    <h2 class="message-title"><i class="fas fa-calendar-alt"></i> تفاصيل الاجتماع</h2>
+                    <div class="message-content">
+                        <ul class="details-list">
+                            <li><i class="fas fa-bullhorn"></i> <strong>الموضوع:</strong> اجتماع الجمعية العمومية لتشكيل مجلس أولياء الأمور</li>
+                            <li><i class="fas fa-calendar-day"></i> <strong>اليوم:</strong> الخميس</li>
+                            <li><i class="fas fa-clock"></i> <strong>التاريخ:</strong> <span class="date">2 / 10 / 2025 م</span></li>
+                            <li><i class="fas fa-pray"></i> <strong>الوقت:</strong> بعد صلاة المغرب مباشرة</li>
+                            <li><i class="fas fa-school"></i> <strong>المكان:</strong> مبنى المدرسة</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- الرسالة 3 -->
+                <div class="message">
+                    <h2 class="message-title"><i class="fas fa-users"></i> الشراكة الفاعلة</h2>
+                    <div class="message-content">
+                        وإيماناً من مدرستكم بأن الشراكة مع أولياء الأمور ركيزة أساسية للنجاح، تتشرف مدرسة محمد بن سليمان الغافري للتعليم الأساسي بدعوتكم لحضور اجتماع الجمعية العمومية لتشكيل مجلس أولياء الأمور للعامين الدراسيين 2025/2026 و2026/2027م.
+                    </div>
+                </div>
+                
+                <!-- الرسالة 4 -->
+                <div class="message">
+                    <h2 class="message-title"><i class="fas fa-star"></i> أهمية حضوركم</h2>
+                    <div class="message-content">
+                        حضوركم الكريم ومساهمتكم الفاعلة سيسهمان في رسم خطط المدرسة وتعزيز جودة برامجها وأنشطتها وتحقيق تطلعات أبنائنا الأوفياء بما يلبي طموحات المجتمع المحلي ويدعم ميادين العمل المدرسي كافة.
+                    </div>
+                </div>
+                
+                <!-- الرسالة 5 -->
+                <div class="message">
+                    <h2 class="message-title"><i class="fas fa-heart"></i> مستقبل أبنائنا</h2>
+                    <div class="message-content">
+                        معاً نصنع مستقبلاً مشرقاً لأبنائنا الطلبة، ونتعاون لبناء جيل واعٍ ومثقف قادر على مواجهة تحديات المستقبل وتحقيق طموحات الوطن الغالي.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p class="closing">وفقكم الله وسدد خطاكم لما فيه خير أبنائنا ووطننا العزيز</p>
+            <p class="signature">مدرسة محمد بن سليمان الغافري للتعليم الأساسي</p>
+        </footer>
+    </div>
+
+    <script>
+        // إنشاء عناصر عائمة للخلفية
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const colors = ['rgba(255, 215, 0, 0.3)', 'rgba(255, 255, 255, 0.2)', 'rgba(200, 220, 255, 0.2)'];
+            
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                // حجم عشوائي
+                const size = Math.random() * 100 + 20;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                
+                // موقع عشوائي
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100 + 100}%`;
+                
+                // لون عشوائي
+                element.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // مدة عشوائية للحركة
+                element.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                element.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(element);
+            }
+        }
+        
+        // العد التنازلي
+        function updateCountdown() {
+            const targetDate = new Date('October 2, 2025 19:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+            
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+                document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+                document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+                
+                // إضافة تأثير النبض عندما يكون الوقت أقل من يوم
+                if (days === 0) {
+                    document.getElementById('days').classList.add('pulse');
+                    document.getElementById('hours').classList.add('pulse');
+                    document.getElementById('minutes').classList.add('pulse');
+                    document.getElementById('seconds').classList.add('pulse');
+                }
+            } else {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                document.querySelector('.countdown-title').textContent = 'لقد حان وقت الاجتماع!';
+            }
+        }
+        
+        // التحكم في التمرير
+        function setupScrollControls() {
+            const scrollingContent = document.getElementById('scrollingContent');
+            const pauseBtn = document.getElementById('pauseBtn');
+            const playBtn = document.getElementById('playBtn');
+            
+            let isPaused = false;
+            
+            pauseBtn.addEventListener('click', function() {
+                if (!isPaused) {
+                    scrollingContent.style.animationPlayState = 'paused';
+                    isPaused = true;
+                }
+            });
+            
+            playBtn.addEventListener('click', function() {
+                if (isPaused) {
+                    scrollingContent.style.animationPlayState = 'running';
+                    isPaused = false;
+                }
+            });
+        }
+        
+        // تحديث العد التنازلي كل ثانية
+        setInterval(updateCountdown, 1000);
+        
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingElements();
+            updateCountdown();
+            setupScrollControls();
+        });
+    </script>
+</body>
+</html>
